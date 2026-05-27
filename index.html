@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hot Cup | Artisanal Roastery &amp; Cafe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary": "#9a4600",
+                        "on-primary-container": "#ac9181",
+                        "background": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e5e2e1",
+                        "primary-fixed-dim": "#dec1af",
+                        "surface-bright": "#fcf9f8",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-fixed": "#e9e2d3",
+                        "tertiary-container": "#322f25",
+                        "surface-dim": "#dcd9d9",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#763300",
+                        "primary": "#26170c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#612900",
+                        "tertiary": "#1d1a11",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container": "#f0eded",
+                        "secondary-fixed-dim": "#ffb68d",
+                        "on-secondary-fixed": "#321200",
+                        "inverse-surface": "#313030",
+                        "primary-container": "#3d2b1f",
+                        "surface-tint": "#705a4c",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "outline": "#81756e",
+                        "on-primary-fixed": "#28180d",
+                        "on-surface-variant": "#4f453f",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#9c9689",
+                        "secondary-fixed": "#ffdbc9",
+                        "on-tertiary-fixed": "#1e1b13",
+                        "secondary-container": "#fe8028",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed-variant": "#574335",
+                        "primary-fixed": "#fbddca",
+                        "outline-variant": "#d2c4bc",
+                        "tertiary-fixed-dim": "#cdc6b8",
+                        "inverse-primary": "#dec1af",
+                        "on-tertiary-fixed-variant": "#4b463c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-lg": "32px",
+                        "container-margin-desktop": "64px",
+                        "stack-md": "24px",
+                        "stack-xl": "48px",
+                        "container-margin-mobile": "20px",
+                        "gutter-md": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "display-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(38, 23, 12, 0.8), rgba(38, 23, 12, 0.2));
+        }
+        .glass-card {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_4px_20px_-5px_rgba(38,23,12,0.1)]">
+<div class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">coffee</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Hot Cup</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md" href="#menu">Our Coffee</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md" href="#menu">Food Menu</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md" href="#about">About Us</a>
+<button class="bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-md active:scale-95 transition-transform">Order Now</button>
+</nav>
+<button class="md:hidden text-primary" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<!-- Navigation Drawer (Mobile) -->
+<div class="fixed inset-0 bg-on-background/40 z-[60] hidden transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<div class="fixed top-0 right-0 h-full w-80 bg-surface z-[70] translate-x-full transition-transform duration-300 ease-in-out shadow-xl" id="nav-drawer">
+<div class="flex flex-col gap-base p-stack-md h-full">
+<div class="flex justify-between items-center mb-8">
+<span class="font-headline-md text-headline-md text-primary">Hot Cup Menu</span>
+<button onclick="toggleDrawer()"><span class="material-symbols-outlined">close</span></button>
+</div>
+<a class="text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-container-highest flex items-center gap-4 transition-all" href="#menu">
+<span class="material-symbols-outlined">local_cafe</span>
+<span class="font-body-lg text-body-lg">Our Coffee</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-container-highest flex items-center gap-4 transition-all" href="#menu">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-body-lg text-body-lg">Food Menu</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-container-highest flex items-center gap-4 transition-all" href="#about">
+<span class="material-symbols-outlined">info</span>
+<span class="font-body-lg text-body-lg">About Us</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 rounded-xl hover:bg-surface-container-highest flex items-center gap-4 transition-all" href="#contact">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-body-lg text-body-lg">Locations</span>
+</a>
+<div class="mt-auto pt-8">
+<button class="w-full bg-primary text-white py-4 rounded-xl font-headline-md active:scale-[0.98] transition-transform">Order Now</button>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Hero Coffee" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqRKhHOOCE3FggZXkinEj3P1bqfc1X558JDTbWYeWnY7jOTte-z7BaZ3c2Zx-Bkmw-hDRiYBZNuTU-fv_AYd2YFn4RBPnBTYYtZy29LxtaeivqEsQrunmjZHgrGHklkRzvuja9gmFekvdthRWMRMgVIGns9Cn-nb8O4-DEDhAkxTZBQLvyDh_gzh9I5G2eSLEw0fyr6peCBwKR83xyE_45NY8eJrP4Clj6v2cQptfwbuRpReTBKOVA9rnQ-huFc-MuLJw2VWtx8TBt"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent"></div>
+</div>
+<div class="relative z-10 px-container-margin-mobile md:px-container-margin-desktop w-full">
+<div class="max-w-2xl text-white">
+<h1 class="font-display-lg text-display-lg mb-4 animate-fade-in-up">Fresh Coffee,<br/>Fresh Mood</h1>
+<p class="font-body-lg text-body-lg mb-8 opacity-90 leading-relaxed max-w-lg">Experience artisanal roasting in every sip. Handcrafted beverages and snacks curated for the modern urbanite.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-on-secondary px-10 py-4 rounded-full font-headline-md shadow-lg hover:shadow-secondary/20 transition-all hover:-translate-y-1">Order Now</button>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-full font-headline-md hover:bg-white/20 transition-all">Explore Menu</button>
+</div>
+</div>
+</div>
+</section>
+<!-- About Us Section -->
+<section class="py-stack-xl px-container-margin-mobile md:px-container-margin-desktop bg-surface-container-lowest" id="about">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-gutter-lg items-center">
+<div class="order-2 md:order-1">
+<div class="inline-block px-4 py-1.5 bg-secondary/10 text-secondary rounded-full font-label-md mb-6">Our Story</div>
+<h2 class="font-headline-lg text-headline-lg md:text-headline-lg text-primary mb-6">Crafted with Passion,<br/>Served with Warmth</h2>
+<div class="space-y-4 text-on-surface-variant font-body-lg">
+<p>At Hot Cup, we believe coffee is more than just a caffeine kick; it's a sensory journey. Our beans are ethically sourced from the finest estates across India and roasted in small batches to preserve their unique profiles.</p>
+<p>From our signature artisanal brews to our cozy atmosphere, every detail is designed to be your neighborhood sanctuary—a place where quality meets comfort.</p>
+</div>
+<div class="grid grid-cols-2 gap-gutter-md mt-10">
+<div class="border-l-4 border-secondary pl-4">
+<div class="text-3xl font-bold text-primary">100%</div>
+<div class="text-on-surface-variant font-label-md">Arabica Beans</div>
+</div>
+<div class="border-l-4 border-secondary pl-4">
+<div class="text-3xl font-bold text-primary">Artisanal</div>
+<div class="text-on-surface-variant font-label-md">Small Batches</div>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 relative">
+<div class="aspect-square rounded-3xl overflow-hidden shadow-2xl rotate-2">
+<img class="w-full h-full object-cover" data-alt="A premium high-fidelity close-up of freshly roasted coffee beans being poured into a modern glass jar. The lighting is warm and golden, highlighting the oily texture of the dark beans. The background is a blurred high-end cafe interior with soft cream walls and wooden accents, evoking a sense of artisanal craftsmanship and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkVkdS--SOffaTFo5LilUBEgUeaxVpbIRZbuaPg7PGNDwDQKKw3HjU1om8WvN0McowDEYD96mMMrylv2MyZujqXfluTN5kIIVWPmzSneSSKLcSPxsjx3DJ7Oax8Ird3k1Tt7ijyDSwMfNqtJpQ6TfW2d9vpmyVp3qgnUjHDxZ_Grs5V-r_G1PM3aIJ8gAEXMs5oeuwpK1DC9NRwAK_yjZDv6GHxLHV-2LRNKrOHIdlS8bG6cqh4fxsAdllE3nh9aUvAYZ65nioyH0B"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-secondary p-8 rounded-2xl shadow-xl hidden md:block">
+<span class="material-symbols-outlined text-white text-5xl">verified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Section (The Bento/Grid Focus) -->
+<section class="py-stack-xl px-container-margin-mobile md:px-container-margin-desktop bg-background" id="menu">
+<div class="text-center max-w-2xl mx-auto mb-stack-md">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Curated Menu</h2>
+<p class="text-on-surface-variant font-body-md">Savor the richness of handcrafted flavors across our four signature categories.</p>
+</div>
+<!-- Category Tabs -->
+<div class="flex justify-start md:justify-center gap-4 mb-stack-md overflow-x-auto pb-4 no-scrollbar">
+<button class="category-btn active bg-primary text-on-primary px-8 py-3 rounded-full font-label-md transition-all" onclick="filterMenu('all')">All</button>
+<button class="category-btn bg-surface-container-high text-on-surface-variant px-8 py-3 rounded-full font-label-md hover:bg-surface-variant transition-all" onclick="filterMenu('coffee')">Coffee</button>
+<button class="category-btn bg-surface-container-high text-on-surface-variant px-8 py-3 rounded-full font-label-md hover:bg-surface-variant transition-all" onclick="filterMenu('pizza')">Pizza</button>
+<button class="category-btn bg-surface-container-high text-on-surface-variant px-8 py-3 rounded-full font-label-md hover:bg-surface-variant transition-all" onclick="filterMenu('sandwiches')">Sandwiches</button>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter-md" id="menu-grid">
+<!-- Pizza Category -->
+<div class="menu-item pizza group">
+<div class="bg-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden">
+<img alt="Margherita Pizza" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWm5yxuQQhe2cavZWmSwBT84D4qXxtfP9H8wLnugBqs1G58rMh___7pxzahKwfuNT0w07NObIVwEDyfOX08ot1CBkWETj9TVSMtUf0fhYEViTjpBYUj0zhePxMM77FYTOlffAPJC022etIksoZV76xZ9_h0RqNH5F0yj_xSDKv2SJROBfUzw-rKt4BlFFmcPNHswEMvIlWjt86N5nM1LP5Hi9hKk9CQF7l7rfkzRvZ8QVNuP_8i4zotV-XbKuVf26v2lwNVmpW9y-a"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[12px] font-bold tracking-wider uppercase">Best Seller</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Margherita Pizza</h3>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md ml-1">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6">Classic Italian goodness with fresh mozzarella.</p>
+<div class="flex justify-between items-center">
+<span class="text-2xl font-bold text-primary">₹300</span>
+<button class="bg-primary text-white p-3 rounded-2xl hover:bg-secondary transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="menu-item pizza">
+<div class="bg-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/10">
+<div class="relative aspect-square">
+<img alt="Golden Corn Pizza" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqgbOhgDFctYpUMXNWJo4SInhqUDRlKqfjh8zCVs5PmYSp8SIuwkjWl9UzzRwEHCICiS6hgv0r0xKhI0DIayRJG9hqHet17JnyF8Jv05I0LZqXpQGXAlO7UXIpBaGXWOHkfqma_9LtaHuNUZjpBt6jrY8BouajXWOXxIrHiffBVusamaTdKKGsX7X9D8Oy0ep5ALirRGINSvTzf8KvuGkRycAcC_cH1G293WMq7Pz_kEUxiPBiwTYVDYZwnBsdMva4d506CZmV-0bd"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Golden Corn Pizza</h3>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md ml-1">4.5</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-6">
+<span class="text-2xl font-bold text-primary">₹300</span>
+<button class="bg-primary text-white p-3 rounded-2xl"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sandwiches -->
+<div class="menu-item sandwiches">
+<div class="bg-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/10">
+<div class="relative aspect-square">
+<img alt="Veg Cheese Grilled" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgxav9FRW-EIRQ1h7MDAH-SJgOzqbHtxPxxBpDEbHTTB-d3VSkx3n6QuQnC5g8IyU7lH-f-ZZqGXvsA7F65TBUbkDnB45nWdzjEycU5-cP1fIRkFVijkCFqLk5VZNN6UFdMO5oGTkyhri9k53ty1Wu9W78tewPmGxswr4YiP3VRCIBNh_xsq8T7gzDjvudD18Cg5y2JoX_l8MtZ--Q69aAR8i3jXodk4N6b0QfrdnxbDMVq4O1PIochs3Bb5VjrXR2bfuHNCV3WgPd"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-[12px] font-bold uppercase">Must Try</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Veg Cheese Grilled</h3>
+<p class="text-on-surface-variant font-body-md mb-6">Loaded with fresh veggies and gooey cheese.</p>
+<div class="flex justify-between items-center">
+<span class="text-2xl font-bold text-primary">₹150</span>
+<button class="bg-primary text-white p-3 rounded-2xl"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Coffee/Frappes -->
+<div class="menu-item coffee group">
+<div class="bg-surface rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden">
+<img alt="Choco Frappe" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxLKxG_ci3PR8wGeEXMIgC3UfB9R-371emyQHvEYtRfzQ5moPxuqMIHJLShyi0BFEn-yYppJ9-LRqDVb84YIOPA50qEmlyP-_gKlcAPhlgyPPeGHazYwZY7GUBCvtW5VIZgkT9OewxHKRAUx_BrG3UXDWlFQNq0e1SdciWRLCH-dGOg09-1npiq4-25SxI004S6AdA-MTYKV9sWvs3hWD0Vd6JDa0e7XnF0Mo1mtoeaPz7-gisjjNaRifD-SGyN4Oia_vg8UPSnO4Q"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[12px] font-bold uppercase">Trending</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Choco Frappe</h3>
+<div class="flex justify-between items-center mt-6">
+<span class="text-2xl font-bold text-primary">₹175</span>
+<button class="bg-primary text-white p-3 rounded-2xl"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- More items (Simplified versions) -->
+<div class="menu-item coffee">
+<div class="bg-surface rounded-3xl p-4 shadow-sm border border-outline-variant/10">
+<img alt="Vanilla Frappe" class="w-full h-48 object-cover rounded-2xl mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy_YU2DBydjdC6c8aPcOY0uhs8u5JifWJRkiWz3eK1bYvFN5KFEqRuwO7VuCvYEvnzxTh6HCE6XlUEUw6CBh5VVCiQYHlP6YPl9QjBQIYDOZuhs4rKUF8nGNHVsycjKbShVusH2PA_yqPtF9geoS7BhXdESpV2UyPqZl1vz9SkJ160Zlkku5ZMpVB79sVJYPTOG0FfXv0aH51Yy8Pt23ijqQ77jh_fXz8VnZ3crS3ttW5UKKIap0GUJEBOXhsEmkRxFC22bdOmUoLN"/>
+<h3 class="font-headline-md text-primary">Vanilla Frappe</h3>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-xl">₹150</span>
+<button class="text-primary"><span class="material-symbols-outlined">add_circle</span></button>
+</div>
+</div>
+</div>
+<div class="menu-item coffee">
+<div class="bg-surface rounded-3xl p-4 shadow-sm border border-outline-variant/10">
+<img alt="Hazelnut Frappe" class="w-full h-48 object-cover rounded-2xl mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3su8UFlgwmoKMq8WXi68g0f4D97Lpjpi_Ql2QmtGiCASd-JYDczu0Otpo2Pbfva6DVNW_qVt-aMyw8z-RD8plb1Sig0iN2bjKID8zG171QVkrSAumz-TXrNNxiOF2mmYeCDiRvM7TZP_Qu4AdrdzAVxANawFInJj_WO1xatj3h5H6meykOEOirE9nVnMtqsS2J65w_mUEZeSjpj_G6Xc5UVbxpjjX5dI6bWKfFYTlZ2QlSgo2rpNRE57y-efGIPxvHHDyIIRZfvkk"/>
+<h3 class="font-headline-md text-primary">Hazelnut Frappe</h3>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-xl">₹175</span>
+<button class="text-primary"><span class="material-symbols-outlined">add_circle</span></button>
+</div>
+</div>
+</div>
+<div class="menu-item coffee">
+<div class="bg-surface rounded-3xl p-4 shadow-sm border border-outline-variant/10">
+<img alt="Caramel Frappe" class="w-full h-48 object-cover rounded-2xl mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnT4haRKLsACE9gCRduuat8Q7gw1WOy20pjQRfUniw1L4YIqpDbryLBCYAOPxc2SqEolgmOPzOI6Hh_93Me-0I-bEsT7ySlPUq-OBqOseEz6xGtHvnwFWAz6LhXkj4UtQ2Bycwhm9icmlJ_RAG00xUubM1bGRJdra9lmFTvQaTVt-9RvhPi9TIV6dwe-6Ra299mrGKv_ch6JGa3mYrdcClQ3OsMH4NWr7OCVHoKepzx9KvOsaS5ykOMngoVg9_fgUulG_MZycN9FPV"/>
+<h3 class="font-headline-md text-primary">Caramel Frappe</h3>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-xl">₹175</span>
+<button class="text-primary"><span class="material-symbols-outlined">add_circle</span></button>
+</div>
+</div>
+</div>
+<div class="menu-item pizza">
+<div class="bg-surface rounded-3xl p-4 shadow-sm border border-outline-variant/10">
+<img alt="Paneer Pizza" class="w-full h-48 object-cover rounded-2xl mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyoiP2S727-nK4N4Q_xh5uq_VX_2tTbMDG1eo4a2ak764qBgbBY-R2QDqEDPKXsgZQc9I1vi9kJVa95g8ozoI4gTbPG_Hk-hlQDD-RqfeE0FAyRolZZQ_x6yvegOmyKkRnHcfifF3B6zDTey9s-KO9GplfCUatRZ45_o-EIfJoX0fST7fcgkYYrU0YFCxD_Twv5K_xzgDldatfehnL7v3aDEOFhE8sGLj_uo1o_mWN2thywqkg5vqRVovkQIw8Hd-R1lyutPDAfLlb"/>
+<h3 class="font-headline-md text-primary">Paneer Pizza</h3>
+<div class="flex justify-between items-center mt-4">
+<span class="font-bold text-xl">₹300</span>
+<button class="text-primary"><span class="material-symbols-outlined">add_circle</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section (Asymmetric) -->
+<section class="py-stack-xl px-container-margin-mobile md:px-container-margin-desktop bg-surface-container-low">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px] md:h-[800px]">
+<div class="col-span-1 row-span-2 relative group overflow-hidden rounded-3xl">
+<img alt="Cafe vibe" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkVkdS--SOffaTFo5LilUBEgUeaxVpbIRZbuaPg7PGNDwDQKKw3HjU1om8WvN0McowDEYD96mMMrylv2MyZujqXfluTN5kIIVWPmzSneSSKLcSPxsjx3DJ7Oax8Ird3k1Tt7ijyDSwMfNqtJpQ6TfW2d9vpmyVp3qgnUjHDxZ_Grs5V-r_G1PM3aIJ8gAEXMs5oeuwpK1DC9NRwAK_yjZDv6GHxLHV-2LRNKrOHIdlS8bG6cqh4fxsAdllE3nh9aUvAYZ65nioyH0B"/>
+</div>
+<div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
+<img alt="Pizza close-up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbmMQ7AupXtWWHQ2EL0Ot0eZO4sGuEu2GU1K6X1MJfaKb8549fA4la0AlB9YlcZu-uodn5mnyF9ml3lQm_qdWwVRf2e6vj1TQ4hQcEPLoEw6_FfVOi9K06Y5H2BnYapjGoPbYgzLScwcHIrgeFlDf5EbxDoLZLnyI-E-D6rKtWJ78sQwznR0VU_tTBeZdTcIZEOcSa_I8UXsxwRsJUk06qY15393PSAHXDjIo_s_qDbTgdUTsa89FlCNotTUDOrZnP-1evDetDhZ8e"/>
+</div>
+<div class="col-span-1 row-span-2 relative group overflow-hidden rounded-3xl">
+<img alt="Aesthetic setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUxySgrca0NB_IwntODeX-ZLwjlOqi0gFa1bxthmm-JXKKG8nInodZLBBN8lFu_6BDCv0GE75bPgsFJ3eG8G1X_QnpOQL9ExqyZPIfzvhs7oNpIM3fn2RObMwW2RFNeIUYKSf58CgX2lHbcxIHrG16WZHetXjRZuV_hJ4RCx6uJpO0VnQypWrTdkuIpYGTMPrhiEHKzHfJ7ZR6ww1j0NdX186IUKLTdD00jm6FxUsA3Ig7B9Q3U72aTIYGgGdhz41RV8JBgd2Qx-VG"/>
+</div>
+<div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
+<img alt="Dessert focus" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVJxbWnR9mD1Ck86wWieY5wkY37IaKviNq8XscSktlF6YzvZYBMtghB4OMSeEvDlzR3kL6JIvK47B0h3b9c_fix-QCvBRqsY2IRM6NtQzwb2A3JV0ziJMOXxmgvEvCSvxvGd2hF30EEtxWX5UHjYTM7ueteSCTufA8jahN67w87HsGCkVGzu0app93c_1EmOFH3KuVT1VzJ5zIcafJCaAr9AtxLYmG4_1c3rJ2qp2oQYa6oWe2iOBiXCqzt3JV4VM0KkKZFOR8Gudl"/>
+</div>
+<div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
+<img alt="Sandwich shot" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc-3iSwk4cXLD0AwTKGEXfz4Nrab92AADY0enzNDGnM7iPkHo9QE99vmvGSbG7xnLCYNMIjeenRTs7AAG2B7QzYxZ-Vvdix-ipIym3NFX5Q3ro0dqKRDmZ1u2TQshA-g0hXBHDYWSuQIZy5VezENEqS9HHsIZP12t9JDVNA7bzU62rLPlKaht0Vvx-FS6CxiY6qMwnshe8641-TbVWJtlUv-uabxpKEVepmXGHnW3_h7QXafNqiqcdI23SxT3hB1ioDn2wcodKzd47"/>
+</div>
+</div>
+</section>
+<!-- Customer Reviews -->
+<section class="py-stack-xl px-container-margin-mobile md:px-container-margin-desktop bg-primary text-on-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 p-20 opacity-5">
+<span class="material-symbols-outlined text-[300px]">format_quote</span>
+</div>
+<div class="max-w-7xl mx-auto relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-stack-md text-center">What our coffee lovers say</h2>
+<div class="grid md:grid-cols-3 gap-gutter-lg">
+<!-- Review 1 -->
+<div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/15 transition-all">
+<div class="flex gap-1 text-secondary-fixed mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg italic mb-8 opacity-90">"The cold coffee here is amazing and prices are affordable."</p>
+<div>
+<div class="font-headline-md text-white">Rahul Sharma</div>
+<div class="text-on-primary-container font-label-md">Office Worker</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/15 transition-all">
+<div class="flex gap-1 text-secondary-fixed mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="font-body-lg italic mb-8 opacity-90">"Loved the paneer sandwich and ambience. Perfect hangout spot."</p>
+<div>
+<div class="font-headline-md text-white">Sneha Patel</div>
+<div class="text-on-primary-container font-label-md">Student</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/15 transition-all">
+<div class="flex gap-1 text-secondary-fixed mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg italic mb-8 opacity-90">"Perfect place to work peacefully with coffee. The hazelnut frappe is top notch."</p>
+<div>
+<div class="font-headline-md text-white">Arjun Reddy</div>
+<div class="text-on-primary-container font-label-md">Coffee Lover</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Map -->
+<section class="py-stack-xl px-container-margin-mobile md:px-container-margin-desktop bg-surface-container-lowest" id="contact">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-gutter-lg">
+<div class="space-y-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Visit Us</h2>
+<p class="text-on-surface-variant">We're located in the heart of the city.</p>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<div class="font-label-md text-on-surface-variant">Phone Number</div>
+<div class="text-primary font-headline-md">+91 98765 43210</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<div class="font-label-md text-on-surface-variant">Timings</div>
+<div class="text-primary font-headline-md">Daily: 8 AM - 11 PM</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4 pt-4">
+<a class="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white py-4 rounded-2xl font-bold transition-transform active:scale-95 shadow-lg" href="https://wa.me/919876543210">
+<span class="material-symbols-outlined">chat</span>
+                        WhatsApp Us
+                    </a>
+<button class="bg-primary text-white p-4 rounded-2xl"><span class="material-symbols-outlined">share</span></button>
+</div>
+</div>
+<div class="rounded-3xl overflow-hidden shadow-2xl h-[400px] bg-surface-container-high relative">
+<!-- Map Placeholder -->
+<img alt="Map Location" class="w-full h-full object-cover" data-location="Mumbai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg3kqDlStv7LT8QEaCEUIXkvWTfc-Pgw2oSW0Z2PS6n744_V7crlzxeFzrVRX93OhbqvObcgn64icavcKiyXwtJPdsamOISiYgCoc-ftYUwjTLrjT365sdNBpkmqB720OP9glpOnlqu8E8PTnvH7ACfh4oo75elqCm89B8E7J8LJrEXe4uOcW5E6cThpwon2Zcfhj4-5x3RWEVa8xtCle0Lzacy2Wtut1PRLjfKJH-Qlbr79_uUf7NljsKtd4rxi7O3wohsK4iSYKR"/>
+<div class="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-lg px-container-margin-mobile md:px-container-margin-desktop py-stack-xl max-w-7xl mx-auto">
+<div class="md:col-span-4">
+<span class="font-headline-md text-headline-md text-secondary-fixed mb-4 block">Hot Cup</span>
+<p class="text-on-primary-container/80 font-body-md mb-8">Artisanal roasting, locally sourced snacks, and the perfect mood for your every break.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary-fixed cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-secondary-fixed cursor-pointer">alternate_email</span>
+<span class="material-symbols-outlined text-secondary-fixed cursor-pointer">photo_camera</span>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-on-primary-container mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">About Us</a></li>
+<li><a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Sustainability</a></li>
+<li><a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-on-primary-container mb-6">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h4 class="font-label-md text-on-primary-container mb-6">Newsletter</h4>
+<p class="text-on-primary-container/80 font-body-md mb-4">Join our brew club for exclusive offers.</p>
+<div class="flex gap-2">
+<input class="bg-white/5 border border-white/10 rounded-xl px-4 py-2 flex-1 text-white" placeholder="Your email" type="email"/>
+<button class="bg-secondary text-white px-4 py-2 rounded-xl"><span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 px-container-margin-mobile md:px-container-margin-desktop py-8 text-center text-on-primary-container/60 font-body-md">
+            © 2024 Hot Cup Artisanal Roastery. All rights reserved.
+        </div>
+</footer>
+<!-- FAB for ordering (Mobile only) -->
+<button class="fixed bottom-8 right-8 z-[40] md:hidden bg-secondary-container text-on-secondary-container w-16 h-16 rounded-full shadow-2xl flex items-center justify-center animate-bounce">
+<span class="material-symbols-outlined text-3xl">shopping_cart</span>
+</button>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            drawer.classList.toggle('translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            const btns = document.querySelectorAll('.category-btn');
+            
+            // Toggle active state for buttons
+            btns.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-on-primary');
+                btn.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+            });
+            event.target.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+            event.target.classList.add('bg-primary', 'text-on-primary');
+
+            // Filter items
+            items.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    if (category === 'all' || item.classList.contains(category)) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                }, 300);
+            });
+        }
+
+        // Simple scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>
