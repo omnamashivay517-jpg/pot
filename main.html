@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hot Cup | Artisanal Food Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#dec1af",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#eae7e7",
+                    "on-tertiary-container": "#9c9689",
+                    "surface-tint": "#705a4c",
+                    "background": "#fcf9f8",
+                    "tertiary-fixed": "#e9e2d3",
+                    "secondary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed-variant": "#4b463c",
+                    "primary-container": "#3d2b1f",
+                    "on-tertiary-fixed": "#1e1b13",
+                    "on-secondary-container": "#612900",
+                    "on-secondary-fixed-variant": "#763300",
+                    "surface-dim": "#dcd9d9",
+                    "secondary-fixed-dim": "#ffb68d",
+                    "primary-fixed": "#fbddca",
+                    "secondary": "#9a4600",
+                    "tertiary": "#1d1a11",
+                    "on-primary-fixed": "#28180d",
+                    "inverse-on-surface": "#f3f0ef",
+                    "tertiary-fixed-dim": "#cdc6b8",
+                    "primary": "#26170c",
+                    "on-surface": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e5e2e1",
+                    "outline-variant": "#d2c4bc",
+                    "secondary-container": "#fe8028",
+                    "on-primary-container": "#ac9181",
+                    "inverse-surface": "#313030",
+                    "surface": "#fcf9f8",
+                    "surface-variant": "#e5e2e1",
+                    "on-surface-variant": "#4f453f",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#574335",
+                    "tertiary-container": "#322f25",
+                    "on-background": "#1c1b1b",
+                    "on-error-container": "#93000a",
+                    "outline": "#81756e",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f0eded",
+                    "on-secondary-fixed": "#321200",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "surface-container-low": "#f6f3f2",
+                    "primary-fixed-dim": "#dec1af",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-lg": "32px",
+                    "stack-xl": "48px",
+                    "base": "8px",
+                    "container-margin-desktop": "64px",
+                    "stack-md": "24px",
+                    "gutter-md": "24px",
+                    "container-margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Sora"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .food-card-shadow {
+            box-shadow: 0 16px 32px -8px rgba(38, 23, 12, 0.08);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-header {
+            background: rgba(252, 249, 248, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_4px_20px_-5px_rgba(38,23,12,0.1)]">
+<nav class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">coffee</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Hot Cup</span>
+</div>
+<div class="hidden md:flex items-center gap-gutter-lg">
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors duration-300" href="#">Our Coffee</a>
+<a class="text-secondary font-bold font-body-md transition-colors duration-300" href="#">Food Menu</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors duration-300" href="#">Roastery</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors duration-300" href="#">Locations</a>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label-md active:scale-95 transition-transform">
+                Order Now
+            </button>
+</nav>
+</header>
+<main class="pt-24 pb-stack-xl">
+<!-- Hero Section -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl">
+<div class="max-w-7xl mx-auto">
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-primary mb-4">Artisanal Bites</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Hand-crafted pizzas, grilled-to-perfection sandwiches, and savory sides curated to pair perfectly with our signature roasts.</p>
+</div>
+</section>
+<!-- Category Navigation -->
+<section class="sticky top-[72px] z-40 bg-background/80 backdrop-blur-sm py-4 mb-stack-md border-b border-outline-variant/10">
+<div class="px-container-margin-mobile md:px-container-margin-desktop overflow-x-auto whitespace-nowrap scrollbar-hide flex gap-4 max-w-7xl mx-auto">
+<a class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md" href="#pizzas">Pizzas</a>
+<a class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-full font-label-md hover:bg-surface-container-highest transition-colors" href="#sandwiches">Sandwiches</a>
+<a class="bg-surface-container text-on-surface-variant px-6 py-2 rounded-full font-label-md hover:bg-surface-container-highest transition-colors" href="#sides">Sides</a>
+</div>
+</section>
+<!-- Pizzas Section (Bento Grid) -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl max-w-7xl mx-auto" id="pizzas">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-lg text-headline-lg text-primary">Stone-Oven Pizzas</h2>
+<span class="text-on-surface-variant font-label-md">5 Varieties</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-md">
+<!-- Margherita (Trending) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface food-card-shadow transition-all hover:-translate-y-1">
+<div class="relative aspect-[16/9] overflow-hidden">
+<img alt="Margherita Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A professional food photograph of a classic Margherita pizza with a perfectly charred, bubbly crust. Topped with vibrant red tomato sauce, melted pools of fresh white mozzarella, and bright green basil leaves. The lighting is warm and directional, creating soft shadows and highlighting the texture of the crust and the glossy oil on the surface, presented on a dark artisanal plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBf1WFYVF8TFehevJxbL-_Xd-yRHRGkYlN0ObvoR69Y5rli6K2oa38yS8d3Qr5FpdnSayevllvDqzDgXQLb3XthlNbkI39UAImNLNGZhZ_2VqwKVxPuaYFIidB4TZAusKw9veUs_Dyym6H8g3ANQGOFPzHgHS7a-TNhz3_mXOzZdBNI9E4Z94N0z3y2J3q_fkxuOvoN7YUMz_1wQqIT5QL05G1-6J8F5Ed5TrBjnXXJE_iZ9Z3ZP2lIgKKlL2y7f1GkF4QKXRVxNz1"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[12px] font-bold uppercase tracking-widest flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+                            Trending
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Margherita Pizza</h3>
+<span class="font-label-md text-secondary">₹449</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4">San Marzano tomato sauce, fresh mozzarella, aromatic basil, and a drizzle of extra virgin olive oil.</p>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.9</span>
+</div>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant font-label-md">Pure Vegetarian</span>
+</div>
+</div>
+</div>
+<!-- Golden Corn -->
+<div class="md:col-span-4 group overflow-hidden rounded-xl bg-surface food-card-shadow transition-all hover:-translate-y-1">
+<div class="aspect-square overflow-hidden">
+<img alt="Golden Corn Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A top-down view of a Golden Corn pizza featuring a golden-brown crust. The pizza is generously covered with sweet yellow corn kernels and a thick layer of melted, stretching mozzarella cheese. The colors are warm and inviting, emphasizing the rich textures of the corn and cheese against a rustic wooden background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHUOMBLX8c2Cj2SHat4xoThaYTE1c4DpkqN1n4eZjlvtMKe4dV_ATBtUtx6LZa-J64PeLEdsoK550kQe1fvoAnDL8zYyBLBADcX7zcGxV2fIo2NPZqT4ptGeVyvO8PfyqYkY-3sNfJ2z8BWncrEGT5bMfaKmoToLsdTFj1-r_V6hnUbY8-5Seq4eZiFQNYV-85HMTxrheBFa4hIAJ5nLq3-jP4G3919SMjqo9DxWKg-KjtGTdKlGE7nJvdO0Xx0I07CykxmgJthfC8"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Golden Corn</h3>
+<span class="font-label-md text-secondary">₹399</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 text-sm line-clamp-2">Sweet golden corn kernels with a triple cheese blend and herbs.</p>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.7</span>
+</div>
+</div>
+</div>
+<!-- Mexican Pizza -->
+<div class="md:col-span-4 group overflow-hidden rounded-xl bg-surface food-card-shadow transition-all hover:-translate-y-1">
+<div class="aspect-square overflow-hidden">
+<img alt="Mexican Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_o8SOAKcLUsmYYAMaRbUokUu6W296Mdqf8ruWwyZUdwTFTXfYfNf4JofWcmMoH-GKQjV4SuZ8mJvLc7SVlcxYfhfLU9IAbSY-AaLb3ybqSGDdufG7rPcACKiA2C-e6ztv-115NHZFrJCBK_YhsIr-kUGHoaIo_Qpp_gQJjKV_lz3VoyeEpCCipIyr4f4KsoMFLqaibUEDVWg-2nwQqPF8X6n1ekh6XWnaoeRtN19b3Ja3V3FAHU6fRqUv-kDf_1rjSrLmxJxFWE1R"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Mexican</h3>
+<span class="font-label-md text-secondary">₹499</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 text-sm line-clamp-2">Zesty jalapenos, corn, onions, and capsicum with spicy salsa base.</p>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.8</span>
+</div>
+</div>
+</div>
+<!-- Paneer Pizza -->
+<div class="md:col-span-4 group overflow-hidden rounded-xl bg-surface food-card-shadow transition-all hover:-translate-y-1">
+<div class="aspect-square overflow-hidden">
+<img alt="Paneer Pizza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close-up of an artisanal paneer pizza. Cubes of marinated paneer cheese are scattered across a bed of melted cheese and tangy tomato sauce. Topped with sliced green bell peppers and red onions for contrast. The scene is lit with soft afternoon light, creating a premium and appetizing feel in a modern cafe setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO7tZF8Bq7uX3xSI2ZpJz0zGaWPyYvXxusYz_ZWgEgL--rZeE5GcJNQ-m8Fw9k2R6NMrD_-X4gb-CisuLX5LyPiCaCzrNcEjnK0x1irDFj5_SblYaSUpJj_OYcK3X8Bs1Mg51LLsGTRJkkOzmydFoc-NWmW1NGRqo7aj6ocuBcoaGtzqrE1xbPmoOskM11rX5eHwmm3XxsChW_QdNgF51EvxOyW5WnlzH7QXVlC3wasU-9nqPmxKSQOLk_9cKbIiFuWk5X1TOohJaC"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Paneer Tikka</h3>
+<span class="font-label-md text-secondary">₹529</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 text-sm line-clamp-2">Smoky tandoori paneer cubes, red onions, and bell peppers with tikka sauce.</p>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.9</span>
+</div>
+</div>
+</div>
+<!-- Veg Cheese Burst -->
+<div class="md:col-span-4 group overflow-hidden rounded-xl bg-surface food-card-shadow transition-all hover:-translate-y-1">
+<div class="aspect-square overflow-hidden">
+<img alt="Veg Cheese Burst" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A slice of veg cheese burst pizza being pulled away, showing long, elastic strings of melted cheese. The pizza is topped with various garden vegetables including olives and cherry tomatoes. The background is a clean, minimalist dining table, emphasizing the indulgence and high quality of the ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnPQwERNm3fXlUDSTG4yL2HNmbCFNicDnmZAAMI1rXzh61T-UIOjLlU20CxpBHnMnZwqvgZLCMPXzoP1qwCNxAJnAN8Mgzl1MToTATMSTbS_AOicHoYbnhsul7jld-AvtlSRrq3-nXcOJxSUA06s3ZQ86VIlgWF_Pc8qGlngNdKAFKSYFC8gioSH51rJzOxekb5WSWChl7xj_hDpD_dNSt6autlg5g-h8MqbCgRL9vkUrlJBfAPDEU-rIsXCXfqptZi-5qChvrRtL2"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Cheese Burst</h3>
+<span class="font-label-md text-secondary">₹549</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 text-sm line-clamp-2">Double layered crust filled with molten liquid cheese and topped with garden veggies.</p>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md">4.7</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sandwiches Section -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl max-w-7xl mx-auto" id="sandwiches">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Grilled Sandwiches</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-lg">
+<!-- Veg Cheese Grilled -->
+<div class="flex flex-col md:flex-row bg-surface rounded-xl overflow-hidden food-card-shadow transition-all hover:-translate-y-1">
+<div class="md:w-2/5 aspect-[4/3] md:aspect-auto">
+<img alt="Veg Cheese Grilled Sandwich" class="w-full h-full object-cover" data-alt="Two halves of a perfectly grilled vegetarian sandwich stacked on a ceramic plate. The bread is golden-brown with clear grill marks. Melted cheese, tomatoes, and green peppers are visible in the center. Beside the sandwich is a small bowl of rich red tomato ketchup. The atmosphere is cozy and warm, like a boutique cafe in India." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyriy2yuAUGvyonOpEfopTIiu7VWXYDKfgYsyIjhb5q91cjALHtJLd2KzuyW0FuKp433ygTH0BLQr9RMc147QXULVOZgOUX1kwKpLBPUjGQ9sX3sCqtLnDnEJxlTxvEhEizkpcNmaaOFZWNd5VtuNFMuWvSSs5UZk2qJfK322LpH5Cp46Ko0QcKd1MdGSD0W3kIsLcy34yMXWz5ZznW6r0sKEUJbj6nqHPS_kN3ZZH_am9jaUkMb6j-e0yv8b1Kym3NVHOR1amh_X5"/>
+</div>
+<div class="p-6 md:w-3/5 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Veg Cheese Grilled</h3>
+<span class="font-label-md text-secondary">₹249</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6">Crispy sourdough with garden vegetables, house sauce, and processed cheese.</p>
+<button class="w-fit border border-secondary text-secondary px-4 py-2 rounded-lg font-label-md hover:bg-secondary hover:text-on-secondary transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Masala Cheese -->
+<div class="flex flex-col md:flex-row bg-surface rounded-xl overflow-hidden food-card-shadow transition-all hover:-translate-y-1">
+<div class="md:w-2/5 aspect-[4/3] md:aspect-auto">
+<img alt="Masala Cheese Sandwich" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9mCEqbj_SqC8gvyFMi_lDhBupgTJLaZE4tczkYeshJMuqynEVhfIPi8mQHIMlFeBUbilHrTEZWIlxFIYk0FwhoTj_Ae9_lV-05iFvsM1UHqSeJf8GQ95SwTAo6ejiGwhcW7uoAbEMWAlE6ZfNGiCe_uAN767pruH-G_2Amvr9wn4npqUOcU9iWowPiGBT2dm0KsSo4wLqutERJemhXAyM8DZpiM_9BUEyHVB7LlN-cMP4KaPBda-e55LhzK9GVt1J6I33P9PbDz5e"/>
+</div>
+<div class="p-6 md:w-3/5 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Masala Cheese</h3>
+<span class="font-label-md text-secondary">₹279</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6">Spicy potato mash, mint chutney, and molten cheese on artisan bread.</p>
+<button class="w-fit border border-secondary text-secondary px-4 py-2 rounded-lg font-label-md hover:bg-secondary hover:text-on-secondary transition-all">Add to Cart</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Sides Section -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop max-w-7xl mx-auto" id="sides">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Quick Sides</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-md">
+<div class="p-6 bg-surface-container-low rounded-xl border border-outline-variant/20">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Garlic Breadsticks</h4>
+<p class="text-on-surface-variant font-body-md mb-4">Baked with herb butter and parmesan. Served with dip.</p>
+<span class="font-label-md text-secondary">₹189</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl border border-outline-variant/20">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Cheesy Fries</h4>
+<p class="text-on-surface-variant font-body-md mb-4">Hand-cut potato fries smothered in warm cheese sauce.</p>
+<span class="font-label-md text-secondary">₹219</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl border border-outline-variant/20">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Herbed Potato Wedges</h4>
+<p class="text-on-surface-variant font-body-md mb-4">Roasted wedges with rosemary and sea salt flakes.</p>
+<span class="font-label-md text-secondary">₹159</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container text-on-primary-container">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-lg px-container-margin-mobile md:px-container-margin-desktop py-stack-xl max-w-7xl mx-auto">
+<div class="md:col-span-4">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary-fixed text-3xl">coffee</span>
+<span class="font-headline-md text-headline-md text-secondary-fixed font-bold">Hot Cup</span>
+</div>
+<p class="font-body-md opacity-80 mb-6">Artisanal coffee and gourmet food served with love in the heart of the city.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest/20 flex items-center justify-center hover:bg-secondary-fixed/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-secondary-fixed">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest/20 flex items-center justify-center hover:bg-secondary-fixed/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-secondary-fixed">location_on</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-secondary-fixed-dim uppercase tracking-widest mb-6">Explore</h4>
+<ul class="space-y-4 font-body-md">
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Our Coffee</a></li>
+<li><a class="text-secondary-fixed-dim font-semibold" href="#">Food Menu</a></li>
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Roastery</a></li>
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">About Us</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-secondary-fixed-dim uppercase tracking-widest mb-6">Policy</h4>
+<ul class="space-y-4 font-body-md">
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h4 class="font-label-md text-secondary-fixed-dim uppercase tracking-widest mb-6">Visit Us</h4>
+<p class="font-body-md opacity-80 mb-2">124, Roastery Lane, Indiranagar</p>
+<p class="font-body-md opacity-80 mb-4">Bangalore, Karnataka 560038</p>
+<p class="font-body-md opacity-80">Open Daily: 8:00 AM - 11:00 PM</p>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 py-8 px-container-margin-mobile text-center font-body-md opacity-60">
+            © 2024 Hot Cup Artisanal Roastery. All rights reserved.
+        </div>
+</footer>
+<!-- Cart FAB (Contextual) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="bg-secondary text-on-secondary w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-error text-on-error text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+</div>
+<script>
+        // Smooth scroll spy for category navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.category-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+        });
+
+        // Simple micro-interaction for adding to cart
+        const addButtons = document.querySelectorAll('button');
+        addButtons.forEach(btn => {
+            if (btn.innerText === 'Add to Cart') {
+                btn.addEventListener('click', () => {
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Added!';
+                    btn.classList.add('bg-secondary', 'text-white');
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.classList.remove('bg-secondary', 'text-white');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body></html>
