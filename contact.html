@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hot Cup | Artisanal Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#612900",
+                        "on-tertiary-fixed": "#1e1b13",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-fixed": "#ffdbc9",
+                        "on-secondary-fixed-variant": "#763300",
+                        "primary-container": "#3d2b1f",
+                        "outline": "#81756e",
+                        "tertiary-fixed-dim": "#cdc6b8",
+                        "surface-tint": "#705a4c",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fe8028",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-primary-container": "#ac9181",
+                        "surface-dim": "#dcd9d9",
+                        "secondary": "#9a4600",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-container": "#9c9689",
+                        "on-secondary-fixed": "#321200",
+                        "surface-container": "#f0eded",
+                        "error": "#ba1a1a",
+                        "background": "#fcf9f8",
+                        "tertiary-container": "#322f25",
+                        "surface-bright": "#fcf9f8",
+                        "tertiary-fixed": "#e9e2d3",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed-dim": "#ffb68d",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#eae7e7",
+                        "primary-fixed": "#fbddca",
+                        "on-surface-variant": "#4f453f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "outline-variant": "#d2c4bc",
+                        "on-primary-fixed-variant": "#574335",
+                        "on-primary-fixed": "#28180d",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-fixed-dim": "#dec1af",
+                        "on-error": "#ffffff",
+                        "primary": "#26170c",
+                        "inverse-primary": "#dec1af",
+                        "tertiary": "#1d1a11",
+                        "on-tertiary-fixed-variant": "#4b463c",
+                        "inverse-surface": "#313030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-lg": "32px",
+                        "container-margin-desktop": "64px",
+                        "stack-xl": "48px",
+                        "stack-md": "24px",
+                        "container-margin-mobile": "20px",
+                        "base": "8px",
+                        "gutter-md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 24px;
+        }
+        .gallery-item {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        .bento-tall { grid-row: span 2; }
+        .bento-wide { grid-column: span 2; }
+        @media (max-width: 768px) {
+            .bento-wide { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-[0_4px_20px_-5px_rgba(38,23,12,0.1)]">
+<nav class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 max-w-full mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="coffee">coffee</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Hot Cup</span>
+</div>
+<div class="hidden md:flex gap-gutter-lg items-center">
+<a class="text-secondary font-bold font-body-md text-body-md transition-colors duration-300" href="#">Gallery</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Our Coffee</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Food Menu</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Locations</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-md text-label-md active:scale-95 transition-transform">
+                Order Now
+            </button>
+</nav>
+</header>
+<main class="pt-24 pb-stack-xl">
+<!-- Hero Section -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl">
+<div class="max-w-4xl">
+<h1 class="font-display-lg text-display-lg md:text-[56px] text-primary mb-4 leading-tight">Artisanal Warmth in Every Frame.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Step into the curated world of Hot Cup. From our slow-roasted beans to our hand-crafted pizzas, every detail is a testament to our passion for premium comfort.
+                </p>
+</div>
+</section>
+<!-- Category Filter -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-md overflow-x-auto">
+<div class="flex gap-4 min-w-max pb-2">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md">All</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all">Roastery</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all">Kitchen</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all">Ambience</button>
+</div>
+</section>
+<!-- Masonry Bento Gallery -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop">
+<div class="gallery-grid">
+<!-- Hazelnut Frappe -->
+<div class="gallery-item bento-tall rounded-xl overflow-hidden shadow-sm relative group cursor-pointer">
+<img alt="Hazelnut Frappe" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugfPJzXYAbX51zch__9ffcci2jlhe7zxpt8_goq-PlVJdC3C4CXQPjALTNu8wSvPrwk2DbbHCf_T5WWOYgmSo4t97_nvrYi9rYMHWLxZPcKjsTgOx0D1fs-_ttIC0MFkhYsD-Q3FxBM0WcfNPhR_UCJ3Hjh02g6z0tZZLBlEQLGDjB_Yt4Q01D6JWY8irQPrhTjvuGkOC4_AeKKP7OK_N_lFkSr3DrXdEAbvkBoCaZ6ZWc8ji8cdEsHk_Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="text-white">
+<span class="text-label-md font-label-md bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full mb-2 inline-block">Roastery</span>
+<h3 class="font-headline-md text-headline-md">Hazelnut Frappe</h3>
+</div>
+</div>
+</div>
+<!-- Margherita Pizza (Placeholder replacement with Image 14 implied by task but using available keys) -->
+<!-- Note: The task asks for Image 14, 8, 9, 20, 22, 16, 10. Only 10, 22, 8, 9 are in the explicit available list below the prompt. I will use the available ones and prompt for the others if they aren't provided. -->
+<div class="gallery-item bento-wide rounded-xl overflow-hidden shadow-sm relative group cursor-pointer">
+<img alt="Golden Corn Pizza" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNKrx4h2Ww_RjTIOIFpUH_uD2M4-yfZp1afw4OQy4p6HhYIJ9qHjKwGUm2VsI14K1zNFXhMDMmTzf6YON1MIQPxfK4iPpA1sV5TlcJ8G2dW2KX5naAWUtUefeS-dAUG5eQkAX-kcdHkL4msw1csnZ02GwVl_ACmLL7j1I4q5-Gr5uYYHWufHs2RTI6WVOqyS8KjYafn6AA_v8YraU7xyDRS70quQU1P-EkOaGkntem_cXiqzD9nZfcp6GmMVTbWMDdqIGccCKsKVbx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="text-white">
+<span class="text-label-md font-label-md bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full mb-2 inline-block">Kitchen</span>
+<h3 class="font-headline-md text-headline-md">Golden Corn Pizza</h3>
+</div>
+</div>
+</div>
+<!-- Masala Cheese Sandwich -->
+<div class="gallery-item rounded-xl overflow-hidden shadow-sm relative group cursor-pointer">
+<img alt="Masala Cheese Sandwich" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsmA9HRDdhv_NhKUYUPkZBgYhgRq5lBC1G11LTV9DfZghNkSkWyRIdK8I3w0jijLQKCegA8WNdCfRZDxZVI6j1Ue0iBDKdlNHHr2QUBcXR2L3E-dNGg3uaui9haIWuxExBdu-lWctIvLv-w8YMNNpaRhBfXV-HhkS73pwKHQtY1CotslWkDS-555DZzvjuD7h5NgQ4HEaGp9NxNPd__sSiz-seLF9IM48hoA8YVYz15J1AkBFKEjF37g6KU_DaZ6EWbyU-GTaHisE5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+<div class="text-white">
+<h3 class="font-label-md text-label-md">Masala Cheese Sandwich</h3>
+</div>
+</div>
+</div>
+<!-- Veg Cheese Grilled Sandwich -->
+<div class="gallery-item rounded-xl overflow-hidden shadow-sm relative group cursor-pointer">
+<img alt="Veg Cheese Grilled Sandwich" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0HGGnWYHzHkh5_4OdWV1wkLk2HYr39gtt3n4EBEPpmTkiEr671DdCIiXQ1tEtmZbXgTcN7f1vMS69zpeohyY986wTUbFb8D8bVJjGVu_3j0l7ERyGfZLxBCAn68gMSsF98rnPa7N05QYm8P8Vc9JOr3-Y2mg41F3P6QWCOp23QJZ5MI-mZkCEztvuf2onFxr7ouHoGZ3gW-NYP5tOBnGTWTZt9xn3vDaD_krGqs7KdV_lyc4LGNm-SoVYCdf1FcJ9px4jNhARcy8a"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+<div class="text-white">
+<h3 class="font-label-md text-label-md">Veg Cheese Grilled Sandwich</h3>
+</div>
+</div>
+</div>
+<!-- Placeholder for images not in provided list but requested in prompt -->
+<div class="gallery-item bento-tall rounded-xl overflow-hidden shadow-sm relative group cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A luxurious, close-up shot of a Caramel Frappe in a crystal-clear tall glass. Swirls of deep golden caramel sauce cascade down the inner walls of the glass, mixing with creamy, blended coffee. The drink is topped with a generous peak of whipped cream and a final drizzle of caramel under soft, warm lighting that evokes a high-end cafe ambiance. The overall mood is indulgent, artisanal, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8Kagl-n9-q1_QX7FOKlEP-gt0kiVeKqdIGWLPduXCjSW2u2KhN6YQpQYyFlc75tRdFmQ911Jwouj3USC2rbDQjd3EdRCFrbJRWdjwyIHcjcEu11mlJX9Ao0EcWhB4eLKa_H_sBxfQEuewohp3COFUZdCXqm7dgQqyZ2s4xrjgiqbJzb2BYnMu9T5UfRnwrhI_59BiEyiIQ8wwegLTbB8HQ65X6d2pFreL-6gqNrL47Ip9jIz4l7tG8EN3jGqB-_X_Y1UJcaTdK4G8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="text-white">
+<span class="text-label-md font-label-md bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full mb-2 inline-block">Roastery</span>
+<h3 class="font-headline-md text-headline-md">Caramel Frappe</h3>
+</div>
+</div>
+</div>
+<div class="gallery-item rounded-xl overflow-hidden shadow-sm relative group cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A top-down, professional food photography shot of a fresh Margherita Pizza on a rustic wooden board. The pizza features a perfectly charred sourdough crust, bright red tomato sauce, melted blobs of fresh mozzarella cheese, and vibrant green basil leaves. The lighting is bright and natural, highlighting the textures of the ingredients. The background is a clean, minimalist cafe table setting, reflecting a premium artisanal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlopsbDL866L8NRMhN0e2tniFRS0Y9rd0ZaFvrERG71pd7_AHABwTLakcU4ykQM5kXSP9cDOE0gTYdFSdU7reWYjX6NqN0E6BlsN6ACig54rqJs9SmXB8twpxdae0ghkNITgvJ4sglQMS-RFB6zzZaelDnB7S-j-1LxLJN1HpoHp8EswG_yFPjvfx9sq4eZypK3SQ4et5TLNxz3urc_T_ER0b8DHyZBrejqBRuqGod_WbCeHKTfJCqPtl2aXmnslxRS98hEfLK24KP"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+<div class="text-white">
+<h3 class="font-label-md text-label-md">Artisanal Margherita</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cafe Vibes Section -->
+<section class="mt-stack-xl px-container-margin-mobile md:px-container-margin-desktop py-stack-xl bg-surface-container-low rounded-3xl mx-container-margin-mobile md:mx-container-margin-desktop">
+<div class="flex flex-col md:flex-row gap-gutter-lg items-center">
+<div class="w-full md:w-1/2 space-y-4">
+<span class="text-secondary font-label-md text-label-md tracking-widest uppercase">Atmosphere</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">The Hot Cup Experience</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Our cafe is more than just a place to grab a coffee; it's a sanctuary for the urban soul. Designed with a blend of modern corporate efficiency and the soul of an Indian roastery, every corner invites you to linger longer.
+                    </p>
+<div class="flex gap-4 pt-4">
+<div class="text-center">
+<span class="block font-headline-md text-headline-md text-secondary">4.8</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Avg Rating</span>
+</div>
+<div class="h-12 w-px bg-outline-variant/30"></div>
+<div class="text-center">
+<span class="block font-headline-md text-headline-md text-secondary">15k+</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Cups Served</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+<div class="rounded-2xl overflow-hidden aspect-square">
+<img class="w-full h-full object-cover" data-alt="A warm and inviting interior view of a modern artisanal cafe. People are seen in soft-focus in the background, sitting at wooden tables and enjoying their drinks. The lighting is a mix of natural light from large windows and warm, glowing pendant bulbs. The color palette is dominated by creams, deep browns, and soft oranges, creating a sophisticated yet deeply welcoming atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeiAdvbMI_V5eH07D5ahyCchKOBVmS3yqlmeEWYBfYtBYYyONSQJZB1P17jAmqWN4A_pWwFTC4fU7iFRDknijH-AabWB4OZqxT08TpkHOTNuzQptBRsqOcZxygNqAfNsSjMzzFy3oSD-qQFdcfpneZhV_GEac2AuFwVhD1qpKK4Nl4xyXzJoldK39jIMi-acDftgk_vIq1qQI34qN-EIGQmFbr9FGdkBPlHnK2GdkGvfznx6WJCOhBobnsh-b-y28C4WqAqIusjhQI"/>
+</div>
+<div class="rounded-2xl overflow-hidden aspect-square transform translate-y-8">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a barista's hands skillfully pouring steamed milk into a ceramic cup of espresso, creating beautiful latte art. The setting is a professional coffee bar with industrial-style machinery. The lighting is moody and focused on the action, highlighting the steam and the rich texture of the coffee. The scene emphasizes craftsmanship and the artisanal quality of the roastery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWrIt86NQGRuhackLjFmCtBPWAttOodOS56UJ2KXhu4KiNz8zuNzemMhSrSNzRA7N2L4UPMRQI5ybWxNqiPc_Akcyenlxvz4o_MITfVi41p0CWcQuuUfzIx770NuWeK32ehqOnlPCak-JosvdoAI9kYb9Oo8kD_QA1SZx_L9eAYaa5ovgVT-rTb0d6yER2AEq4DwkjFKZuBXQ6BTAwBBjjeWJEXa4UQGBX8sNoarxylS479PRYqFEiI0hQNHp0N8LU_z8eRbAqnmtX"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container text-on-primary-container w-full border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-lg px-container-margin-mobile md:px-container-margin-desktop py-stack-xl max-w-full mx-auto">
+<div class="md:col-span-4 space-y-4">
+<span class="font-headline-md text-headline-md text-secondary-fixed font-bold">Hot Cup</span>
+<p class="font-body-md text-body-md text-on-primary-container/80">
+                    Crafting premium coffee experiences and artisanal bites for the modern Indian connoisseur.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined hover:text-secondary-fixed cursor-pointer transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined hover:text-secondary-fixed cursor-pointer transition-colors" data-icon="star">star</span>
+<span class="material-symbols-outlined hover:text-secondary-fixed cursor-pointer transition-colors" data-icon="location_on">location_on</span>
+</div>
+</div>
+<div class="md:col-span-2 space-y-4">
+<h4 class="font-label-md text-label-md text-secondary-fixed-dim font-semibold uppercase">Menu</h4>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Our Coffee</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Food Menu</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Roastery</a></li>
+</ul>
+</div>
+<div class="md:col-span-2 space-y-4">
+<h4 class="font-label-md text-label-md text-secondary-fixed-dim font-semibold uppercase">Company</h4>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">About Us</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Sustainability</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="md:col-span-4 space-y-4">
+<h4 class="font-label-md text-label-md text-secondary-fixed-dim font-semibold uppercase">Stay in the Loop</h4>
+<div class="flex">
+<input class="bg-surface/10 border border-outline-variant/30 text-white rounded-l-xl px-4 py-2 w-full focus:outline-none focus:border-secondary-fixed" placeholder="Email address" type="email"/>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-6 py-2 rounded-r-xl font-label-md text-label-md">Join</button>
+</div>
+</div>
+</div>
+<div class="px-container-margin-mobile md:px-container-margin-desktop py-6 border-t border-outline-variant/10 text-center">
+<p class="font-body-md text-body-md text-on-primary-container/60">© 2024 Hot Cup Artisanal Roastery. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const img = item.querySelector('img');
+                if (img) img.style.transform = 'scale(1.05)';
+            });
+            item.addEventListener('mouseleave', () => {
+                const img = item.querySelector('img');
+                if (img) img.style.transform = 'scale(1)';
+            });
+            
+            // Initial style for transition
+            const img = item.querySelector('img');
+            if (img) img.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+
+        // Basic filter logic (mock)
+        document.querySelectorAll('button[class*="rounded-full"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Find and deactivate current active
+                document.querySelectorAll('button[class*="bg-primary"]').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                // Activate clicked
+                this.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+                this.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+    </script>
+</body></html>
