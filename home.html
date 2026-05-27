@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hot Cup Menu | Artisanal Roastery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#dec1af",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#eae7e7",
+                    "on-tertiary-container": "#9c9689",
+                    "surface-tint": "#705a4c",
+                    "background": "#fcf9f8",
+                    "tertiary-fixed": "#e9e2d3",
+                    "secondary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed-variant": "#4b463c",
+                    "primary-container": "#3d2b1f",
+                    "on-tertiary-fixed": "#1e1b13",
+                    "on-secondary-container": "#612900",
+                    "on-secondary-fixed-variant": "#763300",
+                    "surface-dim": "#dcd9d9",
+                    "secondary-fixed-dim": "#ffb68d",
+                    "primary-fixed": "#fbddca",
+                    "secondary": "#9a4600",
+                    "tertiary": "#1d1a11",
+                    "on-primary-fixed": "#28180d",
+                    "inverse-on-surface": "#f3f0ef",
+                    "tertiary-fixed-dim": "#cdc6b8",
+                    "primary": "#26170c",
+                    "on-surface": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e5e2e1",
+                    "outline-variant": "#d2c4bc",
+                    "secondary-container": "#fe8028",
+                    "on-primary-container": "#ac9181",
+                    "inverse-surface": "#313030",
+                    "surface": "#fcf9f8",
+                    "surface-variant": "#e5e2e1",
+                    "on-surface-variant": "#4f453f",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#574335",
+                    "tertiary-container": "#322f25",
+                    "on-background": "#1c1b1b",
+                    "on-error-container": "#93000a",
+                    "outline": "#81756e",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f0eded",
+                    "on-secondary-fixed": "#321200",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "surface-container-low": "#f6f3f2",
+                    "primary-fixed-dim": "#dec1af",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-lg": "32px",
+                    "stack-xl": "48px",
+                    "base": "8px",
+                    "container-margin-desktop": "64px",
+                    "stack-md": "24px",
+                    "gutter-md": "24px",
+                    "container-margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Sora"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrolling-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .scrolling-wrapper {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-fixed-dim selection:text-on-secondary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-[0_4px_20px_-5px_rgba(38,23,12,0.1)]">
+<div class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 max-w-full mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="coffee">coffee</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">Hot Cup</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-secondary dark:text-secondary-fixed-dim font-bold font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Our Coffee</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Food Menu</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Roastery</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors duration-300" href="#">Locations</a>
+</nav>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label-md text-label-md active:scale-95 transition-transform hover:shadow-lg">
+                Order Now
+            </button>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl">
+<div class="relative rounded-xl overflow-hidden h-[400px] md:h-[500px] flex items-center">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent z-10"></div>
+<img alt="Hero Hazelnut Frappe" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujQQzdZakKrGkBv23KFSM83XQ_Xvwco1VTUklU3z7eST9l6ua4Ur1fjvs1TFVfod4Trfd4oX3kgJKAr_eityKaJ_96pbDrTTHWmiQi55GVR9wDl6m5KkXE22l8wkBN60rstv9cjoJg6vvJuBp6bAD_3Nk0G3UWqQaSQWksbjbXb6e58oQfvZ1Kg9nRYlBMj1gSC8bR0g3X3ux9q8RgU-y24YqeEzVy4ZoKWgU1Bwblu5AQ_qp6jFCDn3DZM"/>
+<div class="relative z-20 max-w-2xl pl-8 md:pl-16">
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full font-label-md text-label-md mb-4 inline-block">Best Seller</span>
+<h2 class="font-display-lg text-display-lg text-white mb-4">Artisanal Frappe Collection</h2>
+<p class="font-body-lg text-body-lg text-white/90 max-w-md">Experience the perfect blend of premium roasted beans and decadent flavors, crafted for the modern urbanite.</p>
+</div>
+</div>
+</section>
+<!-- Category Tabs (Floating Micro-interaction) -->
+<div class="sticky top-[72px] z-40 bg-surface/80 backdrop-blur-sm border-y border-outline-variant/10 mb-stack-md overflow-x-auto scrolling-wrapper">
+<div class="flex px-container-margin-mobile md:px-container-margin-desktop py-4 gap-4">
+<button class="whitespace-nowrap px-6 py-2 bg-primary text-white rounded-full font-label-md text-label-md">Signature Frappes</button>
+<button class="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md text-label-md transition-colors">Hot Brews</button>
+<button class="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md text-label-md transition-colors">Iced Classics</button>
+<button class="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-md text-label-md transition-colors">Seasonal Specials</button>
+</div>
+</div>
+<!-- Menu Section: Signature Frappes -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl">
+<div class="flex items-center justify-between mb-gutter-lg">
+<h3 class="font-headline-lg text-headline-lg text-primary">Signature Frappes</h3>
+<span class="material-symbols-outlined text-outline" data-icon="filter_list">filter_list</span>
+</div>
+<!-- Bento Grid Layout for Frappes -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-md">
+<!-- Hazelnut Frappe - Featured Large -->
+<div class="md:col-span-8 group relative bg-surface-container-low rounded-xl overflow-hidden shadow-[0_16px_40px_-10px_rgba(38,23,12,0.08)] hover:shadow-[0_20px_50px_-10px_rgba(38,23,12,0.12)] transition-all duration-500">
+<div class="flex flex-col md:flex-row h-full">
+<div class="md:w-3/5 h-64 md:h-full overflow-hidden">
+<img alt="Hazelnut Frappe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ujQQzdZakKrGkBv23KFSM83XQ_Xvwco1VTUklU3z7eST9l6ua4Ur1fjvs1TFVfod4Trfd4oX3kgJKAr_eityKaJ_96pbDrTTHWmiQi55GVR9wDl6m5KkXE22l8wkBN60rstv9cjoJg6vvJuBp6bAD_3Nk0G3UWqQaSQWksbjbXb6e58oQfvZ1Kg9nRYlBMj1gSC8bR0g3X3ux9q8RgU-y24YqeEzVy4ZoKWgU1Bwblu5AQ_qp6jFCDn3DZM"/>
+</div>
+<div class="md:w-2/5 p-8 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md">Best Seller</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.9</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Hazelnut Praline Frappe</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Our signature roast blended with roasted hazelnut butter, topped with crushed praline and velvet cream.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-headline-md text-headline-md text-secondary">₹345</span>
+<button class="bg-primary text-white p-3 rounded-full hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Caramel Frappe -->
+<div class="md:col-span-4 group bg-surface-container-low rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-64 overflow-hidden relative">
+<img alt="Caramel Frappe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/ADBb0ugfPJzXYAbX51zch__9ffcci2jlhe7zxpt8_goq-PlVJdC3C4CXQPjALTNu8wSvPrwk2DbbHCf_T5WWOYgmSo4t97_nvrYi9rYMHWLxZPcKjsTgOx0D1fs-_ttIC0MFkhYsD-Q3FxBM0WcfNPhR_UCJ3Hjh02g6z0tZZLBlEQLGDjB_Yt4Q01D6JWY8irQPrhTjvuGkOC4_AeKKP7OK_N_lFkSr3DrXdEAbvkBoCaZ6ZWc8ji8cdEsHk_Y"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-secondary-container text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-primary">4.8</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-headline-md text-primary mb-1">Salted Caramel</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Buttery caramel swirls with a hint of Himalayan pink salt.</p>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary">₹325</span>
+<button class="text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Vanilla Frappe -->
+<div class="md:col-span-4 group bg-surface-container-low rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-64 overflow-hidden relative">
+<img alt="Vanilla Frappe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/ADBb0ugDuC6gNZre4Z1fa5d_wXrXxJqextzh6Jt6uZIRChn4zSVS5fd1uTzUCI68sURNurfrJCwMF-4jo95gLFu6dXuMmn01BG8mjNuD3U70H6Re8k8Gw8-_fQifGl8H8huFiECOxRYWsQ3ti0ec8jp27Ap3EcVYOc37qyOyN2N3wfVKx0OWfAWJcZuTV0a-3Zw87qWbIgbs7aWwJnjg_2mPGNsbMD9s4k_DSW2DS7tsMSRyAplei8XgglheMiwl"/>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-headline-md text-primary mb-1">Madagascar Vanilla</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Premium bean infusion for a smooth, floral, and creamy finish.</p>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary">₹295</span>
+<button class="text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Choco Frappe -->
+<div class="md:col-span-4 group bg-surface-container-low rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-64 overflow-hidden relative">
+<img alt="Choco Frappe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/ADBb0uhzSeDj4aWiNr-XSwFkUW3OgRHdp5VsbEmHaNPQYzYGCWDVTvcRREUi8bl3aysiKGID9IX6TrIiSIcwe6E6GGwTWrPjVDddNVwcMyAr42of2zszI5o68s0PsYB4rs6EJQYTV8d5ZYfnzaCLHro3AObL9j1qTmThFQlAO3jgFGmz2B9whmpWOKvcYiKf7ME9kEGA28R_R0eSE5pprj9u3MaRhwu3PqfiWc2JhCc9Kdf5tDVWQrU23bb4_L7R"/>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-headline-md text-primary mb-1">Dark Cocoa Swirl</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">70% dark Belgian cocoa shavings and rich mocha base.</p>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary">₹315</span>
+<button class="text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Custom/Coming Soon Box -->
+<div class="md:col-span-4 flex items-center justify-center border-2 border-dashed border-outline-variant/30 rounded-xl p-8 bg-surface-container-lowest">
+<div class="text-center">
+<span class="material-symbols-outlined text-[48px] text-outline-variant mb-4" data-icon="auto_awesome">auto_awesome</span>
+<p class="font-headline-md text-headline-md text-outline-variant">Customize Your Blend</p>
+<p class="font-body-md text-body-md text-on-surface-variant/60">Coming soon to the app</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Hot Brews Section (Asymmetric Minimalist List) -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl py-stack-xl bg-surface-container">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-lg items-start">
+<div class="md:col-span-4 sticky top-[150px]">
+<h3 class="font-display-lg text-display-lg text-primary mb-6">Artisanal Hot Brews</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The heart of our roastery. Single-origin beans sourced directly from the Western Ghats and roasted in small batches.</p>
+<div class="mt-8">
+<img class="rounded-xl shadow-lg w-full aspect-[4/5] object-cover" data-alt="Pour over coffee preparation in a warm minimalist coffee shop setting with soft morning light hitting the steam from a ceramic mug on a wooden table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-IN3imdpqR7aOS0utNEc_RWUWW83Bk3Q3LKuzcMdB0kbOxU7zrqOQf1_kicH1Fr_HFy9ZY-nfYZ1E_nv7DTd5hDHVNVQ0MZxeqcslYtguysj6vdRw3iIy2ryrMr8RYV5Ce1zREuU5kONbfbE0ZWsOmZIBEFHUV_ymklTwRWiBWvlVaFSSXnTrqRTzFbrTMvC5Tdnxf_oPf2aICjzvetCLh7c0g3p6T0IHVyRCK0OINzRU5ttOYSxygGIRmsz4Lebueu4BvSK73SbA"/>
+</div>
+</div>
+<div class="md:col-span-8 flex flex-col gap-base">
+<!-- Brew Item -->
+<div class="group flex items-center justify-between p-6 bg-surface rounded-xl hover:translate-x-2 transition-transform duration-300">
+<div class="flex gap-6 items-center">
+<span class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary-fixed">01</span>
+<div>
+<h5 class="font-headline-md text-headline-md text-primary">V60 Pour Over</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Clean, complex, and highlights origin notes.</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-secondary">₹245</span>
+</div>
+<!-- Brew Item -->
+<div class="group flex items-center justify-between p-6 bg-surface rounded-xl hover:translate-x-2 transition-transform duration-300">
+<div class="flex gap-6 items-center">
+<span class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary-fixed">02</span>
+<div>
+<h5 class="font-headline-md text-headline-md text-primary">Cortado</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Equal parts espresso and steamed milk.</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-secondary">₹195</span>
+</div>
+<!-- Brew Item -->
+<div class="group flex items-center justify-between p-6 bg-surface rounded-xl hover:translate-x-2 transition-transform duration-300">
+<div class="flex gap-6 items-center">
+<span class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary-fixed">03</span>
+<div>
+<h5 class="font-headline-md text-headline-md text-primary">Flat White</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Rich micro-foam over a double ristretto shot.</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-secondary">₹215</span>
+</div>
+<!-- Brew Item -->
+<div class="group flex items-center justify-between p-6 bg-surface rounded-xl hover:translate-x-2 transition-transform duration-300 border-l-4 border-secondary-container">
+<div class="flex gap-6 items-center">
+<span class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-white">04</span>
+<div>
+<div class="flex items-center gap-2">
+<h5 class="font-headline-md text-headline-md text-primary">Saffron Rose Latte</h5>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] px-2 py-0.5 rounded uppercase font-bold tracking-widest">Seasonal</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Infused with premium Kashmiri saffron and organic rose water.</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-secondary">₹285</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Iced Coffees (Horizontal Scroll) -->
+<section class="px-container-margin-mobile md:px-container-margin-desktop mb-stack-xl">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-gutter-lg">Iced Classics</h3>
+<div class="flex gap-gutter-md overflow-x-auto scrolling-wrapper pb-base">
+<!-- Iced Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="A tall glass of iced coffee with milk swirls slowly diffusing into the dark coffee, set against a dark textured background with condensation on the glass and scattered coffee beans." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKHcWi2K4ZdPAgksy8SVYKU1avvMKNCrv6yMT17-D-nSibXHtI6vmdBOzqixTGWqxBQq3tCLwSPwrjCXd71g2yCOz0Pk-oTJlqIGzkChW8K_60VAmVLT9fCmaSbuVacsgZKHP2NUFJD2_uvDjiAE4ydiORvmzUm8kHeF9YKVbPvMRBu3G47UyMR0GCRZJGEOSzJhrBUkMx_HUEA2nj7mcWdY_SY6SwiJxa6Bflgt0N9MSP4sxCuDS7wc2rgjnMmLI5-AGEVferc1wz"/>
+<div class="p-6">
+<h6 class="font-headline-md text-headline-md text-primary mb-2">Cold Brew Black</h6>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">18-hour steep, low acidity.</p>
+<span class="font-label-md text-label-md text-secondary">₹220</span>
+</div>
+</div>
+<!-- Iced Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="Refreshing iced americano with floating ice cubes in a crystal clear glass, placed on a light oak table with soft sunlight filtering through a nearby window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrYuIGtsOy0T09wyZ5gXQsfplzw-OhtVISP2-_5weHAXkflaDHQ9olAlxy3m7g0rcG0Kfe-Bk4dqtu6RGZrBdkVUAGlQ61MvTp-oon6LAf5iYL-DWze0ZyiO182taQDq1DYOSV0LWh3k7Eutn3T4jBAFoYhH1EyAdDe9oVz61-zJJxD5m-aB_5jLdJ0YtZN_cC0oBkRKFLOb6W7SW5ejzdEc0k-eEAutcq5T_e5QuN7ygNjAdz1ClSUf9CCdhYP-b_SjjN2r9yOGve"/>
+<div class="p-6">
+<h6 class="font-headline-md text-headline-md text-primary mb-2">Iced Americano</h6>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Chilled espresso over crystal ice.</p>
+<span class="font-label-md text-label-md text-secondary">₹185</span>
+</div>
+</div>
+<!-- Iced Card 3 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="Vietnamese iced coffee with a thick layer of condensed milk at the bottom and dark drip coffee on top, served in a traditional glass with a straw in a vintage cafe setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSQ6BdFqdXMCyr7niUO2YwvT4viIXdKKG2oq5bd-T_WsADWn3dNxA7z_9lDeKqeM123ve10IMKgOi4xV0p-LUQfU2pi5OALRURRtu6NeLX204OUfYfmbNulfhZsXOpAxhTO93TrMoDIDcRcncTZ0dZECUBK5btASYyPw3-TpVQjlVrLghVmwbDqDdyr_K5urZPFTaavRhlFJdGEFNv0h1_l_blm3UscYOfRcVoHFeJnwcSMZS4v_lRHJui1zboGwIIAT1i980ulAFt"/>
+<div class="p-6">
+<h6 class="font-headline-md text-headline-md text-primary mb-2">Vietnamese Iced</h6>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Bold brew with condensed milk.</p>
+<span class="font-label-md text-label-md text-secondary">₹265</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-primary-container dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-lg px-container-margin-mobile md:px-container-margin-desktop py-stack-xl">
+<div class="md:col-span-4">
+<h2 class="font-headline-md text-headline-md text-secondary-fixed mb-6">Hot Cup</h2>
+<p class="font-body-md text-body-md text-on-primary-container/80 dark:text-on-surface-variant max-w-xs mb-8">Crafting premium coffee experiences for the modern Indian urbanite since 2024.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary-fixed hover:text-white cursor-pointer" data-icon="public">public</span>
+<span class="material-symbols-outlined text-secondary-fixed hover:text-white cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-secondary-fixed hover:text-white cursor-pointer" data-icon="mail">mail</span>
+</div>
+</div>
+<div class="md:col-span-2">
+<h6 class="font-label-md text-label-md text-white mb-6 uppercase tracking-wider">Explore</h6>
+<ul class="flex flex-col gap-4">
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Our Coffee</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Food Menu</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Roastery</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h6 class="font-label-md text-label-md text-white mb-6 uppercase tracking-wider">Support</h6>
+<ul class="flex flex-col gap-4">
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Contact Us</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="md:col-span-4 bg-white/5 p-8 rounded-xl backdrop-blur-sm">
+<h6 class="font-label-md text-label-md text-white mb-4 uppercase tracking-wider">Join The Brew Club</h6>
+<p class="font-body-md text-body-md text-on-primary-container/80 mb-6">Get early access to limited seasonal blends and roastery events.</p>
+<div class="flex gap-2">
+<input class="bg-white/10 border-white/20 text-white rounded-lg px-4 py-2 w-full focus:ring-secondary-container focus:border-secondary-container placeholder:text-white/40 font-body-md text-body-md" placeholder="Your email" type="email"/>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-container-margin-mobile md:px-container-margin-desktop py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-on-primary-container/60">© 2024 Hot Cup Artisanal Roastery. All rights reserved.</p>
+<p class="font-body-md text-body-md text-on-primary-container/60">Brewed with passion in Mumbai.</p>
+</div>
+</footer>
+<!-- FAB (Suppressed on details screens, but active here as it's the main menu) -->
+<button class="fixed bottom-8 right-8 bg-secondary-container text-on-secondary-container w-16 h-16 rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined text-[32px]" data-icon="shopping_basket" style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-6 h-6 rounded-full flex items-center justify-center border-2 border-white font-bold">2</span>
+</button>
+<script>
+        // Simple micro-interaction for tab buttons
+        document.querySelectorAll('.sticky button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.sticky button').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white');
+                    b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                });
+                button.classList.add('bg-primary', 'text-white');
+                button.classList.remove('bg-surface-container', 'text-on-surface-variant');
+            });
+        });
+
+        // Soft reveal animation on scroll for menu items
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(item => {
+            item.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(item);
+        });
+    </script>
+</body></html>
